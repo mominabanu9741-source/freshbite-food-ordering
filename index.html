@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreshBite — Real Food, Fast</title>
+<meta name="description" content="Order from your favourite neighbourhood restaurants. FreshBite — cozy, honest, fast food delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="logo">FreshBite<span class="logo-dot">.</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#restaurants">Restaurants</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="accountBtn" aria-label="Account">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5Z"/></svg>
+      </button>
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M7 4h-2v2h2l3.6 7.6-1.4 2.5c-.2.4-.3.8-.3 1.3a2 2 0 0 0 2 2h11v-2H10.4a.25.25 0 0 1-.2-.4l.9-1.6h7c.8 0 1.4-.4 1.8-1l3.2-6.1a1 1 0 0 0-.9-1.4H8.4l-.9-2ZM8 20a2 2 0 1 0 2 2 2 2 0 0 0-2-2Zm10 0a2 2 0 1 0 2 2 2 2 0 0 0-2-2Z"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HOME / HERO ===== -->
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Delivered from kitchens near you</p>
+    <h1 class="hero-title">Real plates.<br>Real fast.</h1>
+    <p class="hero-sub">FreshBite connects you to the restaurants your neighbourhood already trusts — no ghost kitchens, no mystery ingredients. Order in under a minute.</p>
+    <form class="hero-search" id="heroSearch">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="m21 21-4.35-4.35A7.5 7.5 0 1 0 15.5 18l4.35 4.35ZM5 10.5a5.5 5.5 0 1 1 5.5 5.5A5.51 5.51 0 0 1 5 10.5Z"/></svg>
+      <input type="text" id="heroSearchInput" placeholder="Search dishes, cuisines, restaurants…">
+      <button type="submit">Find food</button>
+    </form>
+    <div class="hero-tags">
+      <button class="chip" data-cuisine="all">All</button>
+      <button class="chip" data-cuisine="Indian">Indian</button>
+      <button class="chip" data-cuisine="Italian">Italian</button>
+      <button class="chip" data-cuisine="Chinese">Chinese</button>
+      <button class="chip" data-cuisine="Desserts">Desserts</button>
+    </div>
+  </div>
+  <div class="hero-plate" aria-hidden="true">
+    <svg viewBox="0 0 400 400" class="plate-svg">
+      <circle cx="200" cy="200" r="190" fill="var(--cream)" stroke="var(--brown)" stroke-width="2" opacity="0.5"/>
+      <circle cx="200" cy="200" r="150" fill="var(--orange)" opacity="0.15"/>
+      <circle cx="200" cy="200" r="110" fill="var(--orange)" opacity="0.25"/>
+      <g class="steam">
+        <path d="M170 120c-10-15 10-20 0-35" stroke="var(--brown)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.4"/>
+        <path d="M200 115c-10-15 10-20 0-35" stroke="var(--brown)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.4"/>
+        <path d="M230 120c-10-15 10-20 0-35" stroke="var(--brown)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.4"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== RESTAURANTS ===== -->
+<section id="restaurants" class="section">
+  <div class="section-head">
+    <p class="eyebrow">Around the corner</p>
+    <h2>Restaurants taking orders now</h2>
+  </div>
+  <div class="filter-row">
+    <select id="cuisineFilter">
+      <option value="all">All cuisines</option>
+      <option value="Indian">Indian</option>
+      <option value="Italian">Italian</option>
+      <option value="Chinese">Chinese</option>
+      <option value="Desserts">Desserts</option>
+    </select>
+    <select id="ratingFilter">
+      <option value="0">Any rating</option>
+      <option value="4.5">4.5 &amp; up</option>
+      <option value="4">4.0 &amp; up</option>
+      <option value="3.5">3.5 &amp; up</option>
+    </select>
+    <select id="priceFilter">
+      <option value="0">Any price</option>
+      <option value="1">₹ Budget</option>
+      <option value="2">₹₹ Mid</option>
+      <option value="3">₹₹₹ Premium</option>
+    </select>
+  </div>
+  <div class="restaurant-grid" id="restaurantGrid"></div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section id="menu" class="section section-alt">
+  <div class="section-head">
+    <p class="eyebrow">Today's plate</p>
+    <h2 id="menuHeading">Full menu</h2>
+    <p class="menu-restaurant-note" id="menuRestaurantNote"></p>
+  </div>
+  <div class="diet-filters">
+    <button class="diet-chip active" data-diet="all">All</button>
+    <button class="diet-chip" data-diet="veg">🟢 Veg</button>
+    <button class="diet-chip" data-diet="nonveg">🔴 Non-Veg</button>
+    <button class="diet-chip" data-diet="vegan">🌱 Vegan</button>
+  </div>
+  <div class="menu-grid" id="menuGrid"></div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section about-section">
+  <div class="about-grid">
+    <div class="about-copy">
+      <p class="eyebrow">Since 2019</p>
+      <h2>We started with one motorbike and one aunty's kitchen.</h2>
+      <p>FreshBite began when our founder couldn't find a way to order her building-neighbour's rajma chawal online. Six years later, we work with 1,200+ home cooks and local restaurants across the city — the same kitchens, just easier to reach.</p>
+      <div class="about-stats">
+        <div><strong>1,200+</strong><span>Partner kitchens</span></div>
+        <div><strong>28 min</strong><span>Average delivery</span></div>
+        <div><strong>4.7★</strong><span>Average rating</span></div>
+      </div>
+    </div>
+    <div class="about-award">
+      <div class="ticket">
+        <p class="ticket-label">Best Local Delivery App</p>
+        <p class="ticket-year">2024, City Food Awards</p>
+        <div class="ticket-perf"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section section-alt">
+  <div class="section-head">
+    <p class="eyebrow">We're around</p>
+    <h2>Get in touch</h2>
+  </div>
+  <div class="contact-grid">
+    <form class="contact-form" id="contactForm">
+      <label>Name<input type="text" required></label>
+      <label>Email<input type="email" required></label>
+      <label>Message<textarea rows="4" required></textarea></label>
+      <button type="submit">Send message</button>
+      <p class="form-note" id="contactNote"></p>
+    </form>
+    <div class="contact-info">
+      <p><strong>Address</strong><br>14 Residency Road, Bengaluru, KA 560025</p>
+      <p><strong>Hours</strong><br>Mon–Sun, 9:00 AM – 11:30 PM</p>
+      <p><strong>Phone</strong><br>+91 98450 12345</p>
+      <div class="map-box" aria-hidden="true">
+        <svg viewBox="0 0 300 140"><rect width="300" height="140" fill="var(--cream-dark)"/><circle cx="150" cy="65" r="6" fill="var(--orange)"/><path d="M150 65v20" stroke="var(--orange)" stroke-width="6" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CART DRAWER ===== -->
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="drawer-head">
+    <h3>Your order</h3>
+    <button id="closeCart" aria-label="Close cart">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-summary" id="cartSummary"></div>
+  <button class="cart-checkout-btn" id="goToCheckout">Go to checkout</button>
+</aside>
+
+<!-- ===== CHECKOUT MODAL ===== -->
+<div class="modal-backdrop" id="checkoutBackdrop">
+  <div class="modal" id="checkoutModal">
+    <button class="modal-close" id="closeCheckout" aria-label="Close">✕</button>
+    <div id="checkoutStep1">
+      <h3>Checkout</h3>
+      <label>Delivery address<textarea id="deliveryAddress" rows="2" placeholder="Flat, street, landmark, city">221B Residency Road, Bengaluru</textarea></label>
+      <label>Delivery time
+        <select id="deliveryTime">
+          <option>As soon as possible (28 min)</option>
+          <option>7:30 PM</option>
+          <option>8:00 PM</option>
+          <option>8:30 PM</option>
+        </select>
+      </label>
+      <label>Payment method
+        <select id="paymentMethod">
+          <option>UPI</option>
+          <option>Credit / Debit card</option>
+          <option>Cash on delivery</option>
+        </select>
+      </label>
+      <label>Coupon code
+        <div class="coupon-row">
+          <input type="text" id="couponInput" placeholder="Try FRESH50">
+          <button id="applyCoupon" type="button">Apply</button>
+        </div>
+        <span class="coupon-msg" id="couponMsg"></span>
+      </label>
+      <div class="order-summary" id="checkoutSummary"></div>
+      <button class="place-order-btn" id="placeOrderBtn">Place order</button>
+    </div>
+    <div id="checkoutStep2" class="hidden">
+      <div class="order-success">
+        <div class="success-badge">✓</div>
+        <h3>Order placed!</h3>
+        <p id="orderConfirmText"></p>
+        <p class="order-track" id="orderTrackStatus">Preparing your order…</p>
+        <button id="closeSuccess">Back to menu</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LOGIN MODAL ===== -->
+<div class="modal-backdrop" id="loginBackdrop">
+  <div class="modal modal-small" id="loginModal">
+    <button class="modal-close" id="closeLogin" aria-label="Close">✕</button>
+    <div id="loginView">
+      <h3>Log in to FreshBite</h3>
+      <label>Email<input type="email" id="loginEmail" placeholder="you@example.com"></label>
+      <label>Password<input type="password" id="loginPassword" placeholder="••••••••"></label>
+      <button class="place-order-btn" id="loginSubmit">Log in</button>
+      <p class="switch-auth">New here? <a href="#" id="showRegister">Create an account</a></p>
+    </div>
+    <div id="accountView" class="hidden">
+      <h3>Hi, <span id="accountName">Friend</span> 👋</h3>
+      <div class="account-tabs">
+        <p><strong>Saved address</strong><br>221B Residency Road, Bengaluru</p>
+        <p><strong>Wishlist</strong> <span id="wishlistCount">0</span> items</p>
+      </div>
+      <h4>Order history</h4>
+      <div id="orderHistory" class="order-history"></div>
+      <button class="logout-btn" id="logoutBtn">Log out</button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>FreshBite © 2026 — Built for the Free Web Development Internship Online, Data Alcott Systems.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
